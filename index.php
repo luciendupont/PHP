@@ -1,22 +1,21 @@
 <?php
 
-/*
------------------------boucles--------------------------------------------
+
 for ($i=0; $i <= 150 ; $i++) { 
     if ($i%2 ==1) {
         // var_dump($i);
         echo"$i<br>";
     }
 }
-*/
 
 /*
 for ($i=0; $i<=500 ; $i++) { 
     echo"Je dois faire des sauvegardes régulières de mes fichiers <br>";
 }
+
 */
 
- /*function table($nbr, $nbr2)
+/*function table($nbr, $nbr2)
         {
             $table = '<table border="1">';
             for ($a=0; $a <= $nbr; $a++) {
@@ -30,8 +29,8 @@ for ($i=0; $i<=500 ; $i++) {
             return $table;
         }
 
-        echo table(12, 12); */
-
+        echo table(12, 12); 
+  */      
     
 
 ?>
