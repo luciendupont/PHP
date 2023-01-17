@@ -1,19 +1,19 @@
 <?php
 
 
-for ($i=0; $i <= 150 ; $i++) { 
+/*for ($i=0; $i <= 150 ; $i++) { 
     if ($i%2 ==1) {
         // var_dump($i);
         echo"$i<br>";
     }
-}
+}*/
 
-/*
+
 for ($i=0; $i<=500 ; $i++) { 
     echo"Je dois faire des sauvegardes régulières de mes fichiers <br>";
 }
 
-*/
+
 
 /*function table($nbr, $nbr2)
         {
