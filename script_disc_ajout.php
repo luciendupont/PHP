@@ -8,22 +8,43 @@
 </head>
 <body>
 
-    <h1>Artiste n°<?= $resultat->artist_id; ?></h1>
+    <h1>disque  n°<?= $resultat->disc_id; ?></h1>
 
-    <a href="artists.php">Retour à la liste des artistes</a>
+    <a href="disc.php">Retour à la liste des disques</a>
 
     <br>
     <br>
 
-    <form action ="script_artist_modif.php" method="post">
+    <form action ="script_disc_modif.php" method="post">
 
-        <label for="nom_for_label">Nom de l'artiste :</label><br>
-        <input type="text" name="nom" id="nom_for_label">
-        <br><br>
+    <label for="url_for_label">titre de l album :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
 
-        <label for="url_for_label">Adresse site internet :</label><br>
-        <input type="text" name="url" id="url_for_label">
-        <br><br>
+<label for="url_for_label">nom de l artiste :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
+
+<label for="url_for_label">année du titre :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
+
+<label for="url_for_label"> genre :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
+
+<label for="url_for_label"> label :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
+
+<label for="url_for_label"> prix :</label><br>
+<input type="e" name="url" id="url_for_label" value="<?= $myArtist->artist_url ?>"><br>
+
+
+
+
+
+
+
+
+
+
+
 
         <input type="reset" value="Annuler">
         <input type="submit" value="Modifier">
