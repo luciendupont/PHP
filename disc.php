@@ -35,6 +35,8 @@ $requete->closeCursor();
                 <span class="fw-bold">Label : </span> <?=$disc->disc_label?><br>              
                 <span class="fw-bold">année : </span> <?=$disc->disc_year?><br>               
                 <span class="fw-bold">Genre :</span> <?=$disc->disc_genre?><br>
+                <span class="fw-bold">prix :</span> <?=$disc->disc_price?>€<br>
+                
                 <a href="disc_detail.php?id=<?= $disc->disc_id?>" class="btn btn-primary mt-5 text-center">Détails</a></td>
             </tr>
             <?php endforeach; ?>
