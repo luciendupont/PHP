@@ -23,9 +23,9 @@ $requete->closeCursor();
     <div class="container-fluid">      
         <div class="row p-3">
             <h1 class="col-10">Liste des disques (15)</h1>
-            <a href="disc_new.php" class="btn btn-primary col-2">Ajouter</a>
+            <a href="disc_new.php" class="btn btn-danger col-2"> Ajouter</a>
         </div>
-        <table> 
+        <table class="table table-danger table-striped"> 
         <?php foreach ($tableau as $disc):?>
             <tr>
             <td><img src="jacquette/<?= $disc->disc_picture?>" width= 200 alt="" class="img-thumbnail" alt="Cinque Terre"></td>
@@ -37,7 +37,7 @@ $requete->closeCursor();
                 <span class="fw-bold">Genre :</span> <?=$disc->disc_genre?><br>
                 <span class="fw-bold">prix :</span> <?=$disc->disc_price?>€<br>
                 
-                <a href="disc_detail.php?id=<?= $disc->disc_id?>" class="btn btn-primary mt-5 text-center">Détails</a></td>
+                <a href="disc_detail.php?id=<?= $disc->disc_id?>" class="btn btn-danger mt-5 text-center">Détails</a></td>
             </tr>
             <?php endforeach; ?>
         </table>           
