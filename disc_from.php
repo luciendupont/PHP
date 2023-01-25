@@ -4,7 +4,7 @@
     $requete = $db->prepare("SELECT * FROM disc join artist on artist.artist_id = disc.artist_id WHERE disc_id=?");
     $requete->execute(array($_GET["id"]));
     $disc = $requete->fetch(PDO::FETCH_OBJ);
-    $requete = $db->query("SELECT * FROM artist");
+    $requete = $db->query("SELECT * FROM artist join disc ");
     $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
     $requete->closeCursor();;
 ?>
@@ -30,15 +30,22 @@
     <br>
 
     <div class="p-3">
-        <form action ="disc_detail.php" method="post">
+        <form action ="script_ajout_disc.php" method="post">
 
             <input type="hidden" name="id" value="<?= $disc->disc_id ?>">
 
-            <label for="titre" class="form-label"> Title</label><br>
-            <input type="text" name="titre" value="<?= $disc->disc_title ?>" class="form-control">
+            <label for="titre" class="form-label"> titre</label><br>
+            <select class="form-select" name="nom">
+                    <option selected value="<?= $disc->disc_title?>"> <?= $disc->disc_title ?> </option>
+                    <?php foreach($tableau as $disc):?>
+
+                    <option value="<?= $disc->disc_title ?>"> <?= $disc-> disc_title ?> </option>
+                    
+                    <?php endforeach; ?>
+            </select>
             <br><br>
 
-            <label for="nom" class="form-label">Artist</label><br>
+            <label for="nom" class="form-label">artiste</label><br>
             <select class="form-select" name="nom">
                     <option selected value="<?= $disc->artist_id ?>"> <?= $disc->artist_name ?> </option>
                     <?php foreach($tableau as $artist):?>
@@ -49,29 +56,54 @@
             </select>
             <br><br>
 
-            <label for="annee" class="form-label"> Year</label><br>
-            <input type="text" name="annee"  value="<?= $disc->disc_year ?>" class="form-control">
-            <br><br>
+            <label for="annee" class="form-label"> année</label><br>
+            <select class="form-select" name="nom">
+                    <option selected value="<?= $disc->disc_year?>"> <?= $disc->disc_year?> </option>
+                    <?php foreach($tableau as $disc):?>
 
+                    <option value="<?= $disc->disc_year ?>"> <?= $disc-> disc_year ?> </option>
+                    
+                    <?php endforeach; ?>
+            </select>
+            <br><br>
             <label for="genre" class="form-label"> Genre</label><br>
-            <input type="text" name="genre"  value="<?= $disc->disc_genre ?>" class="form-control">
+            <select class="form-select" name="nom">
+                    <option selected value="<?= $disc->disc_genre?>"> <?= $disc->disc_genre?> </option>
+                    <?php foreach($tableau as $disc):?>
+
+                    <option value="<?= $disc->disc_genre ?>"> <?= $disc-> disc_genre ?> </option>
+                    
+                    <?php endforeach; ?>
+            </select>
             <br><br>
 
             <label for="label" class="form-label"> Label</label><br>
-            <input type="text" name="label"  value="<?= $disc->disc_label ?>" class="form-control">
+            <select class="form-select" name="nom">
+                    <option selected value="<?= $disc->disc_label?>"> <?= $disc->disc_label?> </option>
+                    <?php foreach($tableau as $disc):?>
+
+                    <option value="<?= $disc->disc_label ?>"> <?= $disc-> disc_label ?> </option>
+                    
+                    <?php endforeach; ?>
+            </select>            <br><br>
+
+            <label for="price" class="form-label"> prix</label><br>
+            <select class="form-select" name="nom">
+                    <option selected value="<?= $disc->disc_price?>"><?= $disc->disc_price?> €</option>
+                    <?php foreach($tableau as $disc):?>
+
+                    <option value="<?= $disc->disc_price?>"> <?= $disc-> disc_price ?> €</option>
+                    
+                    <?php endforeach; ?>
+            </select>
+
+            <label for="image" class="form-label"></label><br>
+            <input type="file" name="image"><br>    
+            <img src="jacquette/<?= $disc->disc_picture?>" width= 200 alt="" class="img-thumbnail" alt="Cinque Terre">
             <br><br>
 
-            <label for="price" class="form-label"> Price</label><br>
-            <input type="text" name="price"  value="<?= $disc->disc_price ?>" class="form-control">
-            <br><br>
-
-            <label for="image" class="form-label">Picture</label><br>
-            <input type="file" name="image"><br> 
-            <img src="jaquettes/<?= $disc->disc_picture ?>" alt="<?= $disc->disc_title ?>">
-            <br><br>
-
-            <input type="submit" value="Modifier" class="btn btn-primary">
-            <a href="disc_from.php?id=<?= $disc->disc_id ?>"><button type="button" class="btn btn-primary">Retour</button></a>
+            <input type="submit" value="Modifier" class="btn btn-outline-primary ">
+            <a href="disc_detail.php?id=<?= $disc->disc_id ?>"><button type="button" class="btn btn-outline-primary ">Retour</button></a>
 
         </form>
     </div>

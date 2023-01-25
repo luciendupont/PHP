@@ -1,61 +1,54 @@
 <?php
-require "db.php";
-$db = connexionBase();
-$id = $_GET["id"];
-$requete = $db->prepare("SELECT * FROM disc JOIN artist ON artist.artist_id = disc.artist_id WHERE disc_id=?");
-$requete->execute(array($id));
-$myDisc = $requete->fetch(PDO::FETCH_OBJ);
+    require "db.php";
+    $db = connexionBase();
 
-$requete->closeCursor();
+    $id = $_GET["id"];
 
+    $requete = $db->prepare("SELECT * FROM disc join artist on artist.artist_id = disc.artist_id WHERE disc_id=?");
+    $requete->execute(array($id));
+
+    $disc = $requete->fetch(PDO::FETCH_OBJ);
+
+    $requete->closeCursor();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Velvet Record</title>
+        <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Disc - Détail</title>
-</head>
-<body>
-    <div class="container-fluid">
+    </head>
+    <body>
+    <div class="container-fluid">      
         <div class="row p-3">
-            <h1 class="col-10">Détail des disques</h1>
-            <a href="disc.php" class="btn btn-primary col-2">Retour</a>
+            <h1 class="col-10">Détails</h1>
         </div>
-        <table>
-            <tr>
-                <td class="p-3">
-                    <span class="fs-3" hidden><?=$myDisc->disc_id?></span>
-                </td>
-                <td class="p-3"><img src="jacquette/<?=$myDisc->disc_picture?>" class="w-50"></td>
-                <td class="p-3">
-                    <span class="fs-3"><?=$myDisc->disc_title?></span>
-                </td>
-                <td class="p-3">
-                    <span class="fs-3"><?=$myDisc->artist_name?></span>
-                </td>
-                <td class="p-3">
-                    <span class="fs-3">Label : </span><?=$myDisc->disc_label?>
-                </td>
-                <td class="p-3">
-                    <span class="fs-3">Year : </span><?=$myDisc->disc_year?>
-                </td>
-                <td class="p-3">
-                    <span class="fs-3">Genre :</span><?=$myDisc->disc_genre?>
-                </td>
-                <td>
-                    <span class="fs-3">Prix :</span><?=$myDisc->disc_price?>€
-                </td>
-            </tr>
-        </table>
-        <div class="d-flex justify-content-center">
-            <a href="disc_from.php?id=<?= $myDisc->disc_id ?>" class="btn btn-primary m-1">Modifier</a>
-            <a href="disc_delete_ctrl.php?id=<?= $myDisc->disc_id?>" class="btn btn-primary m-1">Supprimer</a>
-        </div>
-       
-    </div>        
-</body>
+        <div class="card mb-3"  style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="jacquette/<?= $disc->disc_picture?>" width= 200 alt="" class="img-thumbnail" alt="Cinque Terre" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title">titre : <?=$disc->disc_title?></h5>
+        <p class="card-text">artiste :<?=$disc->artist_name?>
+        <p class="card-text">Label : <?=$disc->disc_label?>              
+        <p class="card-text">année : <?=$disc->disc_year?><br>               
+        <p class="card-text">Genre :<?=$disc->disc_genre?><br>
+        <p class="card-text">prix :<?=$disc->disc_price?>€<br>
+                
+    </div>
+    </div>
+    </div>
+    </div>
+<br>
+
+        <a href="disc_from.php?id=<?= $disc->disc_id ?>" class="btn btn-outline-primary   "> Modifier </a>
+        <a href="script_disc_delete.php?id=<?= $disc->disc_id ?>" class="btn btn-outline-primary  confirmation"> Supprimer </a>
+        <a href="disc.php" class="btn btn-outline-primary ">Retour</a>
+    </body>
 </html>

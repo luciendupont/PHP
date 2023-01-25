@@ -13,11 +13,6 @@ function ConnexionBase() {
         die("Fin du script");
     }
 }
-?>
-
-
-
-
 
 
 

@@ -17,6 +17,7 @@ echo "Résultat " . array_sum($tab);
         return true;
     }
     else{
+        triche
         return false;
     }
 }
