@@ -20,36 +20,29 @@ $requete->closeCursor();
     <title>Velvet disque</title>
 </head>
 <body>
-    <div class="container ">      
-        <div class="row p-3">
-            <h1 class="col-sm">Liste des disques (15)</h1>
-            
-            <a href="disc_new.php" class="btn btn-outline-primary  col-2"> Ajouter un  disque</a>
-        </div>
-        <table class="table table-success table-striped"> 
-        <?php foreach ($tableau as $disc):?>
-        <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="jacquette/<?= $disc->disc_picture?>" width= 200 alt="" class="img-thumbnail" alt="Cinque Terre" class="img-fluid rounded-start" >
-    </div>
-    <div class="col-md-6">
-      <div class="card-body">
-        <h5 class="card-title">titre : <?=$disc->disc_title?></h5>
-        <p class="card-text">artiste :<?=$disc->artist_name?>
-        <p class="card-text">Label : <?=$disc->disc_label?>              
-        <p class="card-text">année : <?=$disc->disc_year?><br>               
-        <p class="card-text">Genre :<?=$disc->disc_genre?><br>
-        <p class="card-text">prix :<?=$disc->disc_price?>€<br>
-    <a href="disc_detail.php?id=<?= $disc->disc_id?>" class="btn btn-outline-primary   text-center">Détails</a></td>
-      </div>
-    </div>
-  </div>
-</div>
-            <?php endforeach; ?>
-        
-        </table>           
-   
+<div class="container-fluid">
 
+        
+<h1>Liste des disque <?php echo count($tableau) ?></h1>
+         <a href="disc_new.php" class="btn btn-outline-primary  col-2"> Ajouter un  disque</a>  
+    <div class="row">
+        <?php foreach ($tableau as $disc): ?>
+        <div class="card col-lg-5 col-12 m-4" style="width:18rem;"id="card">
+            <div class="row">
+                <img src="jacquette/<?= $disc->disc_picture ?>" style="max-width:100%;height:auto" class="card-img-top  col-6 " id="imgcard" alt="mage">
+                    <div class="card-body col-6">
+                    <p class="text-right font-weight-bold"><?= $disc->disc_title ?>
+                    <p class="text-right font-weight-bold"><?= $disc->artist_name ?>
+                    <p class="text-right">Label : <?= $disc->disc_label ?>
+                    <p class="text-right">Year : <?= $disc->disc_year ?>
+                    <p class="text-right">Genre :<?= $disc->disc_genre ?>
+                    <p class="text-right"><a href="disc_detail.php?id=<?= $disc->disc_id ?>" class="btn btn-outline-primary">Détails</a>
+                    </div>
+            </div>
+                
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div> 
 </body>
 </html>

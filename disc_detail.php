@@ -27,8 +27,8 @@
         <div class="row p-3">
             <h1 class="col-10">Détails</h1>
         </div>
-        <div class="card mb-3"  style="max-width: 540px;">
-  <div class="row g-0">
+        <div class="card col-lg-5 col-12 m-4" style="width:18rem;"id="card">
+          <div class="row g-0">
     <div class="col-md-4">
       <img src="jacquette/<?= $disc->disc_picture?>" width= 200 alt="" class="img-thumbnail" alt="Cinque Terre" class="img-fluid rounded-start" >
     </div>
