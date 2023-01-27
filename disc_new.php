@@ -41,7 +41,7 @@ $requete->closeCursor();
             <input type="text" placeholder="Entrez un genre" class="col-12" name="genre">
             <label for="label" class="mt-1">Label :</label><br>
             <input type="text" placeholder="Entrez un label" class="col-12" name="label">
-            <label for="price" class="mt-1">Price :</label><br>
+            <label for="price" class="mt-1">Prix :</label><br>
             <input type="text" class="col-12" name="price">
             <label for="price" class="mt-1">Picture :</label><br>
             <input type="file" name="picture">

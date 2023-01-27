@@ -34,11 +34,11 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h5 class="card-title">titre : <?=$disc->disc_title?></h5>
-        <p class="card-text">artiste :<?=$disc->artist_name?>
-        <p class="card-text">Label : <?=$disc->disc_label?>              
-        <p class="card-text">année : <?=$disc->disc_year?><br>               
-        <p class="card-text">Genre :<?=$disc->disc_genre?><br>
+        <p class="card-text">titre :<br><?=$disc->disc_title?>
+        <p class="card-text">artiste :<br><?=$disc->artist_name?>
+        <p class="card-text">Label :<?=$disc->disc_label?><br>              
+        <p class="card-text">année :<?=$disc->disc_year?><br>               
+        <p class="card-text">Genre :<br><?=$disc->disc_genre?>
         <p class="card-text">prix :<?=$disc->disc_price?>€<br>
                 
     </div>
